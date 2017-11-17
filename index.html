@@ -13,32 +13,68 @@
 	<wrapper>
 		<header>
 			<div class="search-controls-container row">
-				<div class="search-controls col-md-8">
-					<select name="city" id="cityHotelsSelect" placeholder="Выберите город..." class="col-md-6 col-md-offset-1">
+				<div class=" search-controls col-md-6">
+					<h1 class="search-title">Выберите отель:</h1>
+					<select name="city" id="cityHotelsSelect" placeholder="Выберите город..." class="col-md-6">
 						<option value="Moscow">Москва</option>
-						<option value="Spb">Санкт-Петербург</option>
+						<option value="SPb">Санкт-Петербург</option>
 					</select>
-					<i class="fa fa-search col-md-3 col-md-offset-1" aria-hidden="true"></i>
+					<a href="#" class="search-icon" id="searchForHotels">
+						<i class="fa fa-search col-md-1" aria-hidden="true"></i>
+					</a>
+
 					
 				</div>
-				<div class="filter-controls-container col-md-4">
-					<span>Сортировать результаты:</span>
+				<div class="filter-controls-container col-md-6">
+					<span class="filter-title">Сортировать результаты:</span>
 					<ul class="search-filter">
-						<li><input type="radio" name="search-filter" id="byRatingHigh"></li>
-						<li><input type="radio" name="search-filter" id="byRatingLow"></li>
-						<li><input type="radio" name="search-filter" id="byPriceHigh"></li>
-						<li><input type="radio" name="search-filter" id="byPriceLow"></li>
+						<li>
+							<input type="radio" name="search-filter" value="rating+" checked>
+							<label for="byRatingHigh">По возрастанию рейтинга</label>
+						</li>
+						<li>
+							<input type="radio" name="search-filter" value="rating-">
+							<label for="byRatingLow">По убыванию рейтинга</label>
+						</li>
+						<li>
+							<input type="radio" name="search-filter" value="price+">
+							<label for="byPriceHigh">По возрастанию стоимости</label>
+						</li>
+						<li>
+							<input type="radio" name="search-filter" value="price-">
+							<label for="byRatingLow">По убыванию стоимости</label>
+						</li>
 					</ul>
 					
 				</div>
 			</div>
 			
 		</header>
-		<section class="search-results">
-			<div class="seearch-results-container">
+		<section class="search-results container-fluid">
+			<div class=" row search-results-container ">
+
+				
+
+
 				
 			</div>
 		</section>
 	</wrapper>
+<script src="js/handlebars-v4.0.11.js"></script>
+<!-- handlebars template -->
+<script id="entry-template" type="text/x-handlebars-template">
+	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 hotel-item">
+		<div class="hotel-item-inner" style="background-image: url('{{preview}}')">
+			<div class="hotel-item-top-container">
+			<h3 class="hotel-name">{{name}}</h3>
+			<div class="hotel-rating"> {{rating}}</div>
+			</div>
+			<div class="hotel-price"> от {{price}} руб.</div>
+			<button class="bookHotel-button"> Забронировать </button>
+		</div>
+
+	</div>
+</script>	
+<script src="js/index.js"> </script>
 </body>
 </html>
