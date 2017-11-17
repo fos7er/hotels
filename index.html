@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Hotels booking test</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/style.css">
+<!-- 	<link rel="stylesheet" href="css/style.min.css"> -->
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=cyrillic" rel="stylesheet">
+</head>
+<body>
+	<wrapper>
+		<header>
+			<div class="search-controls-container row">
+				<div class="search-controls col-md-8">
+					<select name="city" id="cityHotelsSelect" placeholder="Выберите город..." class="col-md-6 col-md-offset-1">
+						<option value="Moscow">Москва</option>
+						<option value="Spb">Санкт-Петербург</option>
+					</select>
+					<i class="fa fa-search col-md-3 col-md-offset-1" aria-hidden="true"></i>
+					
+				</div>
+				<div class="filter-controls-container col-md-4">
+					<span>Сортировать результаты:</span>
+					<ul class="search-filter">
+						<li><input type="radio" name="search-filter" id="byRatingHigh"></li>
+						<li><input type="radio" name="search-filter" id="byRatingLow"></li>
+						<li><input type="radio" name="search-filter" id="byPriceHigh"></li>
+						<li><input type="radio" name="search-filter" id="byPriceLow"></li>
+					</ul>
+					
+				</div>
+			</div>
+			
+		</header>
+		<section class="search-results">
+			<div class="seearch-results-container">
+				
+			</div>
+		</section>
+	</wrapper>
+</body>
+</html>

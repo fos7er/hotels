@@ -1,0 +1,166 @@
+/*=========== общие стили ============*/
+
+img {
+max-width:100%;
+height: auto;	
+}
+
+button {
+border:none;
+outline:none;	
+}
+
+ul {
+	margin:0;
+	padding:0;	
+}
+
+
+
+
+@font-face {
+  font-family: FontAwesome;
+  /* Имя шрифта */
+  src: url(fonts/fontawesome-webfont.woff);
+  /* Путь к файлу со шрифтом */
+}
+
+body {
+	font-size: 16px;
+	font-family: 'Roboto', sans-serif;
+	background-color: #4169E1;
+}
+
+header {
+	padding: 30px 30px;
+	background: blue url("../img/headerBackground.jpg") no-repeat top center;
+	background-size: 100% 100%;
+}
+
+.search-title {
+	color: #f2f2f2;
+	.black-shadow();
+
+}
+
+
+.search-icon {
+	text-decoration: none;
+	color: #f2f2f2;
+	font-size: 20px;
+}
+
+.search-icon:hover {
+	color: #f2f2f2;
+	filter: brightness(110%);
+}
+
+.search-icon:active {
+	color: #f2f2f2;
+	filter: brightness(90%);
+	box-shadow: inset 0px 2px 0px rgba(0,0,0,.5);
+}
+
+.search-icon:visited {
+	color: #f2f2f2;
+}
+
+.search-filter {
+	list-style: none;
+	font-size: 16px;
+	color: #fff;
+	 text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+}
+
+.filter-title {
+	display: inline-block;
+	margin-bottom: 10px;
+}
+
+.search-results {
+	padding: 20px 30px;
+}
+
+
+.hotel-item {
+	margin-bottom: 20px;
+
+	
+	
+	.hotel-item-inner {
+		padding: 10px;
+		text-align: center;
+		background: #000 no-repeat center;
+		-webkit-background-size: 100% 100%;
+		background-size: 100% 100%;
+		border: solid 2px #f2f2f2;
+
+	}
+}
+
+.hotel-item:nth-child(4n) {
+	margin-right: 0px;
+}
+.hotel-item-top-container {
+	display: block;
+	position: relative;
+	margin-bottom: 140px;
+	.clearfix();
+	.hotel-name {
+		display: block;
+		float:left;
+		margin: 0;
+		color: #fff;
+		font-size: 22px;
+		position: absolute;
+  		top: 50%;
+  		transform: translateY(-50%);
+	}
+	.hotel-rating {
+		float: right;
+		padding: 8px;
+		font-size: 24px;
+		font-weight: bold;
+		border: solid black 2px;
+		border-radius: 50%;
+		background: linear-gradient(to bottom, #258dc8 0%,#258dc8 100%);
+	}
+
+}
+
+div.hotel-price {
+	font-size: 20px;
+	.black-shadow;
+	color: #fff;
+	margin-bottom: 10px;
+	font-weight: bold;
+
+}
+
+.bookHotel-button {
+	display: block;
+	width: 100%;
+	margin: 0 auto;
+	background-color: lightgreen;
+	padding: 10px 20px;
+	border-radius: 10px;
+	filter: drop-shadow( 2px 2px 4px rgba(0,0,0, .8));
+	font-weight: bold;
+	box-sizing: border-box;
+}
+
+div .low-rating {
+	color: #ff0000;
+}
+
+div .medium-rating {
+	color:#FF9900;
+}
+
+div .high-rating {
+	color: #50c878;
+}
