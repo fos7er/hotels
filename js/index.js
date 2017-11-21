@@ -75,13 +75,17 @@ function _getHotelsSPb (data) {
 
 // добавление элемнетов при скролле странциы вниз
 
-window.addEventListener('scroll', function(){
-	// if ( scrollBy(0, -1) ) return;
-	var footerCoords = footer.getBoundingClientRect();
-	if ( footerCoords.bottom - window.innerHeight <= footerCoords.height ) {
-		HotelsToTemplate(hotels, ++currentPage);
-		colorfullRatings();
-	}
+var scrollTimeout;
+
+window.addEventListener('scroll', function(evt){
+	clearTimeout(scrollTimeout);
+	scrollTimeout = setTimeout(function(){
+			var footerCoords = footer.getBoundingClientRect();
+			if ( footerCoords.bottom - window.innerHeight <= footerCoords.height ) {
+				HotelsToTemplate(hotels, ++currentPage);
+				colorfullRatings();
+			}
+	}, 100);
 	
 });
 
