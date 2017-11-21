@@ -10,18 +10,36 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=cyrillic" rel="stylesheet">
 </head>
 <body>
-	<wrapper>
+	<div class="wrapper">
 		<header>
 			<div class="search-controls-container row">
 				<div class=" search-controls col-md-6">
 					<h1 class="search-title">Выберите отель:</h1>
-					<select name="city" id="cityHotelsSelect" placeholder="Выберите город..." class="col-md-6">
-						<option value="Moscow">Москва</option>
-						<option value="SPb">Санкт-Петербург</option>
-					</select>
-					<a href="#" class="search-icon" id="searchForHotels">
-						<i class="fa fa-search col-md-1" aria-hidden="true"></i>
-					</a>
+					<div class="search-buttons-container">
+						<select name="city" id="cityHotelsSelect" placeholder="Выберите город..." class="select-city">
+							<option value="Moscow">Москва</option>
+							<option value="SPb">Санкт-Петербург</option>
+						</select>
+						
+						<div class="search-icon" id="searchForHotels">
+							<svg xmlns="http://www.w3.org/2000/svg" class="loopa-logo" viewBox="0 0 16.687 16.688">
+								
+								<defs>
+								    <style>
+								      .cls-1 {
+								        fill: #d6dfda;
+								        fill-rule: evenodd;
+								        opacity: 1.0;
+								      }
+								    </style>
+								  </defs>
+								  <path id="loopa" class="cls-1" d="M638.155,40.747H637.4l-0.264-.261a6.21,6.21,0,1,0-.675.675l0.263,0.262v0.755l4.773,4.76,1.423-1.422Zm-5.731,0a4.291,4.291,0,1,1,4.3-4.291A4.294,4.294,0,0,1,632.424,40.747Z" transform="translate(-626.219 -30.25)"></path>
+								</svg>
+						</div>
+						
+					</div>
+					
+					
 
 					
 				</div>
@@ -59,12 +77,18 @@
 				
 			</div>
 		</section>
-	</wrapper>
+		
+	</div> <!--end of wrapper -->
+	<footer id="footer">
+			<div class="footer-text">
+				Футер 
+			</div>
+		</footer>
 <script src="js/handlebars-v4.0.11.js"></script>
 <!-- handlebars template -->
 <script id="entry-template" type="text/x-handlebars-template">
 	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 hotel-item">
-		<div class="hotel-item-inner" style="background-image: url('{{preview}}')">
+		<div class="hotel-item-inner" style="background-image: url('{{preview}}'), url('../img/noImage.jpg')">
 			<div class="hotel-item-top-container">
 			<h3 class="hotel-name">{{name}}</h3>
 			<div class="hotel-rating"> {{rating}}</div>

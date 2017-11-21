@@ -1,9 +1,16 @@
 var source   = document.getElementById("entry-template").innerHTML;
 var template = Handlebars.compile(source);
+var activeFilter = document.querySelector('input[name=search-filter]:checked').value;
+var hotels = [];
+var destination = document.querySelector('.search-results-container');
+var currentPage = 0;
+var PAGE_SIZE = 12;
 
+//  Получение информации с сервера, в первом случае JSONP во втором AJAX
 searchForHotels.addEventListener('click', function(e) {
-	event.preventDefault();
+	e.preventDefault();
 	var city = cityHotelsSelect.value;
+	currentPage = 0;
 	switch(city) {
 		case 'Moscow':
 			var script = document.createElement('script');
@@ -11,53 +18,103 @@ searchForHotels.addEventListener('click', function(e) {
 			document.body.appendChild(script);
 			break;
 		case 'SPb':
-			var script = document.createElement('script');
-			script.src = 'js/hotelsSPb.js';
-			document.body.appendChild(script);
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', 'js/hotelsSPb.js', true);
+			xhr.timeout = 10000;
+			xhr.onload = function(e) {
+				_getHotelsSPb(JSON.parse(xhr.response));
+			}
+			xhr.send();
 			break;
+
+		
 		default: 	
-		console.log('Unknown city');
+			console.log('Unknown city');
 
 	}
 });
 
-var loadedHotels = null;
+
+// обработчик фильтров отелей
+
+document.querySelector('.search-filter').addEventListener('click', function (e){
+	
+	var newFilter = document.querySelector('input[name=search-filter]:checked').value;
+
+	if (newFilter == activeFilter) {
+		activeFilter = newFilter;
+		return
+	}
+
+	activeFilter = newFilter;
+	removeChildren(destination);
+	var sortedData = sortHotels(hotels); 
+	// добавляем данные из массива в шаблон
+	HotelsToTemplate (sortedData, 0);
+	colorfullRatings();
+
+});
+
+
 
 function _getHotelsMsc (data) {
-	var destination = document.querySelector('.search-results-container');
 	removeChildren(destination);
-	var sortedData = sortHotels(data); 
-	// добавляем данные из массива в шаблон
-	sortedData.forEach( function (element, index){
-		var node = document.createElement('div');
-		 node.innerHTML = template(element);
-		destination.appendChild(node);
-	});
+	var sortedData = hotels = sortHotels(data); 
+	HotelsToTemplate (sortedData, 0);
 	colorfullRatings();
 
 }
 
 function _getHotelsSPb (data) {
-	var destination = document.querySelector('.search-results-container');
 	removeChildren(destination);
-	var sortedData = sortHotels(data); 
-	// добавляем данные из массива в шаблон
-	sortedData.forEach( function (element, index){
-		var node = document.createElement('div');
-		 node.innerHTML = template(element);
-		destination.appendChild(node);
-	});
+	var sortedData = hotels = sortHotels(data); 
+	HotelsToTemplate (sortedData, 0);
 	colorfullRatings();
 
 }
 
-// удаление всех элементов родителя
+// добавление элемнетов при скролле странциы вниз
+
+window.addEventListener('scroll', function(){
+	// if ( scrollBy(0, -1) ) return;
+	var footerCoords = footer.getBoundingClientRect();
+	if ( footerCoords.bottom - window.innerHeight <= footerCoords.height ) {
+		HotelsToTemplate(hotels, ++currentPage);
+		colorfullRatings();
+	}
+	
+});
+
+//  прогоняем отели через шаблонизатор
+function HotelsToTemplate (sortedData, pageNumber) {
+	var fragment = document.createDocumentFragment();
+	var from = pageNumber * PAGE_SIZE;
+	var to = from + PAGE_SIZE;
+	var pageHotels = sortedData.slice(from, to);
+	;
+	if (from != from) {
+
+		console.log('pageNumber or PAGE_SIZE not a number');
+	}
+
+		// добавляем данные из массива в шаблон
+	pageHotels.forEach( function (element, index){
+		var node = document.createElement('div');
+		 node.innerHTML = template(element);
+		fragment.appendChild(node);
+	});
+	destination.appendChild(fragment);
+
+}
+
+// удаление всех элементов из родителя
 function removeChildren(elem) {
   while (elem.lastChild) {
     elem.removeChild(elem.lastChild);
   }
 }
 
+// цветные рейтинги у отелей
 function colorfullRatings(){
 	var allRatings = document.querySelectorAll('.hotel-rating');
 	allRatings.forEach(function(elem, index) {
@@ -77,8 +134,12 @@ function colorfullRatings(){
 
 }
 
+// варианты сортировки
 function sortHotels (hotels) {
-	var sortType = document.querySelector('input[name=search-filter]:checked').value;
+	if ( !Array.isArray(hotels) ) {
+		console.log('Ошибка: Данные с сервера не массив!');
+	}
+	var sortType = activeFilter;
 	switch (sortType) {
 		case 'rating+':
 			 return sortHotelsByRatingPlus(hotels);
@@ -97,26 +158,28 @@ function sortHotels (hotels) {
 	}
 }
 
+// алгоритмы сортировки
+
 function sortHotelsByRatingPlus(hotels) {
 	return hotels.sort(function(a,b){
-		return a.rating > b.rating;
+		return a.rating > b.rating ? 1 : -1;
 	})
 }
 
 function sortHotelsByRatingMinus(hotels) {
 	return hotels.sort(function(a,b){
-		return a.rating < b.rating;
+		return a.rating < b.rating ? 1 : -1;
 	})
 }
 
 function sortHotelsByPricePlus(hotels) {
 	return hotels.sort(function(a,b){
-		return a.price > b.price;
+		return a.price > b.price ? 1 : -1;
 	})
 }
 
 function sortHotelsByPriceMinus(hotels) {
 	return hotels.sort(function(a,b){
-		return a.price < b.price;
+		return a.price < b.price ? 1 : -1;
 	})
 }

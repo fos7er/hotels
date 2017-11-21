@@ -15,7 +15,9 @@ ul {
 	padding:0;	
 }
 
-
+html, body {
+	height: 100%;
+}
 
 
 @font-face {
@@ -28,42 +30,96 @@ ul {
 body {
 	font-size: 16px;
 	font-family: 'Roboto', sans-serif;
-	background-color: #4169E1;
+	background-color: #F7E6C0;
 }
 
 header {
 	padding: 30px 30px;
-	background: blue url("../img/headerBackground.jpg") no-repeat top center;
-	background-size: 100% 100%;
+	background-color: #000;
+	background:url('../img/reception.jpg') no-repeat top center, url('../img/123.jpg');
+
+}
+
+.wrapper {
+	min-height: 100%;
+	margin-bottom: -100px;
+	&::after {
+		content: "";
+		display: block;
+	}
 }
 
 .search-title {
 	color: #f2f2f2;
-	.black-shadow();
+	.black-shadow;
 
 }
+
+
+.search-buttons-container {
+	&::before {
+		content: '';
+		display: inline-block;
+		height: 100%;
+		vertical-align: middle;
+
+	}
+}
+
+.select-city {
+	min-width: 200px;
+	display: inline-block;
+	vertical-align: middle;
+	white-space: normal;
+}
+
 
 
 .search-icon {
-	text-decoration: none;
-	color: #f2f2f2;
-	font-size: 20px;
+	position: relative;
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	margin-left: 10px;
+	vertical-align: middle;
+	white-space: normal;
+	background-color: rgba(255,255,255, .4);
+	border-radius: 50%;
+
+	&:hover {
+		background-color: rgba(255,255,255, .9);
+
+	}
+	&:hover .cls-1 {
+		fill: #000;
+	}
+	
+
 }
 
-.search-icon:hover {
-	color: #f2f2f2;
-	filter: brightness(110%);
+.loopa-logo {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	vertical-align: middle;
+	white-space: normal;
+	color: #000;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate( -50%, -50%);
+
+	
 }
+
+
 
 .search-icon:active {
-	color: #f2f2f2;
-	filter: brightness(90%);
-	box-shadow: inset 0px 2px 0px rgba(0,0,0,.5);
+	color: #ffd700;
+	filter: brightness(70%);
+	
 }
 
-.search-icon:visited {
-	color: #f2f2f2;
-}
 
 .search-filter {
 	list-style: none;
@@ -79,6 +135,9 @@ header {
 .filter-title {
 	display: inline-block;
 	margin-bottom: 10px;
+	color: #fff;
+	.black-shadow;
+
 }
 
 .search-results {
@@ -94,7 +153,6 @@ header {
 	.hotel-item-inner {
 		padding: 10px;
 		text-align: center;
-		background: #000 no-repeat center;
 		-webkit-background-size: 100% 100%;
 		background-size: 100% 100%;
 		border: solid 2px #f2f2f2;
@@ -112,13 +170,15 @@ header {
 	.clearfix();
 	.hotel-name {
 		display: block;
-		float:left;
+		position: absolute;
+		transform: translateY(-50%);
+  		top: 50%;
 		margin: 0;
 		color: #fff;
+		.black-shadow;
 		font-size: 22px;
-		position: absolute;
-  		top: 50%;
-  		transform: translateY(-50%);
+		
+  	
 	}
 	.hotel-rating {
 		float: right;
@@ -151,6 +211,25 @@ div.hotel-price {
 	filter: drop-shadow( 2px 2px 4px rgba(0,0,0, .8));
 	font-weight: bold;
 	box-sizing: border-box;
+}
+
+footer {
+	display: block;
+	width: 100%;
+	background:#f2f2f2 linear-gradient(to bottom, rgba(214,183,116,1) 0%,rgba(201,193,144,1) 40%,rgba(214,183,116,1) 100%);
+	text-align: center;
+
+
+}
+
+footer, .wrapper::after {
+	height: 100px;
+}
+
+.footer-text {
+	line-height: 100px;
+	vertical-align: middle;
+	
 }
 
 div .low-rating {
