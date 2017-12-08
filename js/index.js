@@ -47,6 +47,7 @@ document.querySelector('.search-filter').addEventListener('click', function (e){
 	}
 
 	activeFilter = newFilter;
+	currentPage = 0;
 	removeChildren(destination);
 	var sortedData = sortHotels(hotels); 
 	// добавляем данные из массива в шаблон

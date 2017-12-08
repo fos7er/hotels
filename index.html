@@ -47,20 +47,20 @@
 					<span class="filter-title">Сортировать результаты:</span>
 					<ul class="search-filter">
 						<li>
-							<input type="radio" name="search-filter" value="rating+" checked>
+							<input id="byRatingHigh" type="radio" name="search-filter" value="rating+" checked>
 							<label for="byRatingHigh">По возрастанию рейтинга</label>
 						</li>
 						<li>
-							<input type="radio" name="search-filter" value="rating-">
+							<input id="byRatingLow" type="radio" name="search-filter" value="rating-">
 							<label for="byRatingLow">По убыванию рейтинга</label>
 						</li>
 						<li>
-							<input type="radio" name="search-filter" value="price+">
+							<input id="byPriceHigh" type="radio" name="search-filter" value="price+">
 							<label for="byPriceHigh">По возрастанию стоимости</label>
 						</li>
 						<li>
-							<input type="radio" name="search-filter" value="price-">
-							<label for="byRatingLow">По убыванию стоимости</label>
+							<input id="byPriceLow" type="radio" name="search-filter" value="price-">
+							<label for="byPriceLow">По убыванию стоимости</label>
 						</li>
 					</ul>
 					
@@ -70,6 +70,7 @@
 		</header>
 		<section class="search-results container-fluid">
 			<div class=" row search-results-container ">
+				<div class="widget" id="widget"></div>
 
 				
 
@@ -100,5 +101,36 @@
 	</div>
 </script>	
 <script src="js/index.js"> </script>
+<script>
+	;(function (d, w, e) {
+    w[e] = w[e] || function(){
+        try {
+            w.ecviBookingForm = new EcviBookingForm({
+                protocol: 'http',
+                showOtherHotels: true,
+                checkHotelByDefault: true,
+                headOfficeID: '226',
+                hotelID: '288',
+                bookingPath: 'http://akkahostel.ru/bronirovanie',
+                token: '3a382110-d477-45a0-afc9-3210fa149c2b',
+                width: 295,
+                height: 420,
+                cssPath: 'http://akkahostel.ru/templates/gk_quark/css/bronirovanie.css',
+                container: 'booking-form',
+                target: 'widget'
+            });
+        } catch(e) { console.warn( 'Something goes wrong'); }
+    }
+    var n = d.getElementsByTagName('script')[0],
+        s = d.createElement('script'),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = 'http://hma.ecvi.ru/assets/formreservation/js/iframeCreate/widget.create.js';
+    if (w.opera == '[object Opera]') {  
+        d.addEventListener('DOMContentLoaded', f, false);
+    } else { f(); }
+})(document, window, 'ecvi_booking_callback');
+</script>
 </body>
 </html>
