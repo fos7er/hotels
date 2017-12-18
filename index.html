@@ -101,36 +101,5 @@
 	</div>
 </script>	
 <script src="js/index.js"> </script>
-<script>
-	;(function (d, w, e) {
-    w[e] = w[e] || function(){
-        try {
-            w.ecviBookingForm = new EcviBookingForm({
-                protocol: 'http',
-                showOtherHotels: true,
-                checkHotelByDefault: true,
-                headOfficeID: '226',
-                hotelID: '288',
-                bookingPath: 'http://akkahostel.ru/bronirovanie',
-                token: '3a382110-d477-45a0-afc9-3210fa149c2b',
-                width: 295,
-                height: 420,
-                cssPath: 'http://akkahostel.ru/templates/gk_quark/css/bronirovanie.css',
-                container: 'booking-form',
-                target: 'widget'
-            });
-        } catch(e) { console.warn( 'Something goes wrong'); }
-    }
-    var n = d.getElementsByTagName('script')[0],
-        s = d.createElement('script'),
-        f = function () { n.parentNode.insertBefore(s, n); };
-    s.type = 'text/javascript';
-    s.async = true;
-    s.src = 'http://hma.ecvi.ru/assets/formreservation/js/iframeCreate/widget.create.js';
-    if (w.opera == '[object Opera]') {  
-        d.addEventListener('DOMContentLoaded', f, false);
-    } else { f(); }
-})(document, window, 'ecvi_booking_callback');
-</script>
 </body>
 </html>
