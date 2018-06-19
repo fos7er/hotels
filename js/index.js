@@ -130,13 +130,12 @@ function colorfullRatings(){
     
     if (value < 5.5) {
       elem.classList.add('low-rating');
-    }
-    else if (value > 5.5 && value < 8.0) {
-      elem.classList.add('medium-rating');
-    }
-    else {
-      elem.classList.add('high-rating');
-    }
+    } else if (value > 5.5 && value < 8.0) {
+        elem.classList.add('medium-rating');
+      }
+      else {
+        elem.classList.add('high-rating');
+      }
   });
 
 }
@@ -161,7 +160,7 @@ function sortHotels (hotels) {
       return sortHotelsByPriceMinus(hotels);
       
     default:
-      console.log("inknown sortType");        
+      console.log("unknown sortType");        
   }
 }
 

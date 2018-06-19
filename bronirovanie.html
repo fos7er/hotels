@@ -86,11 +86,7 @@
 				</div>
 			</div>
 
-			<div class="col-md-8 col-md-offset-2 google-map" id="map">
-			
-			
-			</div>
-			<div class="col-md-8 col-md-offset-2 google-map" id="widgetPage">
+			<div class="col-md-8" id="widgetPage">
 				
 			</div>
 		
@@ -150,95 +146,5 @@
 </script>	
 <script src="js/markerclusterer.js"></script>
 <script src='js/mapHotels.js' async defer></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2rUrL_KgjXVset90geVLBQwZENGq0s30&callback=initMap"
-    async defer>
- </script>
-
-
-
-<script>
-	
-      function initMap() {
-      	var activeFilter = document.querySelector('input[name=map-filter]:checked').value;
-      	var filteredHotels = [];
-      	var script = document.createElement('script');
-        script.src = 'js/mapHotels.js';
-        document.getElementsByTagName('head')[0].appendChild(script);
-      	
-      	filterHotels(activeFilter);
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 10,
-          center: {lat: 59.93, lng: 30.35},
-          mapTypeId: 'roadmap'
-        });
-        var markers = createMarkers();
-
-        // Add a marker clusterer to manage the markers.
-	        var markerCluster = new MarkerClusterer(map, markers,
-	            {imagePath: 'img/m',
-	             maxZoom: 12
-	        		});
-	        mapFilter.addEventListener('click', function (e){
-		
-						var newFilter = document.querySelector('input[name=map-filter]:checked').value;
-
-						if (newFilter == activeFilter) {
-							activeFilter = newFilter;
-							return
-						}
-
-						activeFilter = newFilter;
-						filterHotels(activeFilter);
-						markerCluster.clearMarkers();
-						markers = createMarkers();
-						markerCluster.addMarkers(markers);
-
-						
-
-					});
-
-
-	        function filterHotels(filter) {
-		        switch(filter){
-		      		case 'all':
-		      		filteredHotels = hotels;
-		      		break;
-
-		      		case 'ecvi':
-		      		 filteredHotels = hotels.filter(function(item){
-		      			return item.type=='ECVI';
-		      		});
-		      		break;
-		      		case 'edelweiss':
-		      		 filteredHotels = hotels.filter(function(item){
-		      			return item.type=='EDW';
-		      		});
-		      		break;
-		      		default: console.log('unknown sortType');
-
-		      	}
-	        }
-	        function createMarkers(){
-	        	return filteredHotels.map(function(hotel, i) {
-		        	var img = (hotel.type == 'EDW') ? "img/icon-map-marker.svg" : "img/ecvi-marker.svg";
-
-		          return new google.maps.Marker({
-		            position: hotel.location,
-		            title: hotel.name,
-		            icon: {
-							url: img,
-							scaledSize: new google.maps.Size(40, 40)
-						  } 
-		           
-
-
-		          });
-		        });
-
-	        }
-      }
-
-</script>
-
 </body>
 </html>
