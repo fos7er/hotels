@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 	<meta charset="UTF-8">
 	<title>Hotels booking test</title>
@@ -98,7 +98,7 @@
 				Футер 
 			</div>
 		</footer>
-<script>
+<!-- <script>
     ;(function (d, w, e) {
         w[e] = w[e] || function(){
             try {
@@ -128,6 +128,39 @@
             d.addEventListener('DOMContentLoaded', f, false);
         } else { f(); }
     })(document, window, 'ecvi_booking_callback');
+</script> -->
+
+<script>
+	;(function (d, w, e) {
+    w[e] = w[e] || function(){
+        try {
+            w.ecviBookingForm = new EcviBookingForm({
+                protocol: 'http',
+                showOtherHotels: false,
+                checkHotelByDefault: true,
+                headOfficeID: '433',
+                hotelID: '555',
+                bookingPath: 'https://stozen-spb.github.io/hotels/HotelYAR.html',
+                token: '25396b63-51fc-4e56-ac7a-2ca6465b72dd',
+                width: '',
+                height: 420,
+                cssPath: '',
+                container: 'widgetBron',
+                target: 'booking',
+                lang: sessionStorage.getItem('ecviLang') || document.documentElement.lang.toUpperCase() || 'RU'
+            });
+        } catch(e) { console.warn( 'Something goes wrong'); }
+    }
+    var n = d.getElementsByTagName('script')[0],
+        s = d.createElement('script'),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = 'http://hma.ecvi.ru/assets/formreservation/js/iframeCreate/widget.create.js';
+    if (w.opera == '[object Opera]') {  
+        d.addEventListener('DOMContentLoaded', f, false);
+    } else { f(); }
+})(document, window, 'ecvi_booking_callback');
 </script>
 <script src="js/handlebars-v4.0.11.js"></script>
 <!-- handlebars template -->
