@@ -97,73 +97,44 @@
 			<div class="footer-text">
 				Футер 
 			</div>
-		</footer>
-<!-- <script>
-    ;(function (d, w, e) {
-        w[e] = w[e] || function(){
-            try {
-                w.ecviBookingForm = new EcviBookingForm({
-                    protocol: 'https',
-                    showOtherHotels: false,
-                    checkHotelByDefault: true,
-                    headOfficeID: '414',
-                    hotelID: '535',
-                    bookingPath: 'https://stozen-spb.github.io/hotels/HotelYAR.html',
-                    token: 'fdd61cbe-4161-465b-8c64-db410875b32b',
-                    width: '',
-                    height: 420,
-                    cssPath: '',
-                    container: 'widgetBron',
-                    target: 'booking'
-                });
-            } catch(e) { console.warn( 'Something goes wrong'); }
-        }
-        var n = d.getElementsByTagName('script')[0],
-            s = d.createElement('script'),
-            f = function () { n.parentNode.insertBefore(s, n); };
-        s.type = 'text/javascript';
-        s.async = true;
-        s.src = 'https://hma.ecvi.ru/assets/formreservation/js/iframeCreate/widget.create.js';
-        if (w.opera == '[object Opera]') {  
-            d.addEventListener('DOMContentLoaded', f, false);
-        } else { f(); }
-    })(document, window, 'ecvi_booking_callback');
-</script> -->
+		</footer>	
 
 <script>
-	;(function (d, w, e) {
-	    w[e] = w[e] || function(){
-	        try {
-	            w.ecviBookingForm = new EcviBookingForm({
-	                protocol: 'https',
-	                showOtherHotels: false,
-	                checkHotelByDefault: false,
-	                headOfficeID: '4',
-	                hotelID: '5',
-	                bookingPath: '',
-	                token: 'd8229e62-4fe6-48ea-8467-609a67f376c8',
-	                width: '',
-	                height: 420,
-	                cssPath: '',
-	                rulesPath: '',
-	                policyPath: '',
-	                container: 'widgetBron',
-	                target: 'booking',
-	                lang: sessionStorage.getItem('ecviLang') || document.documentElement.lang.toUpperCase() || 'RU'
-	            });
-	        } catch(e) { console.warn( 'Something goes wrong'); }
-	    }
-	    var n = d.getElementsByTagName('script')[0],
-	        s = d.createElement('script'),
-	        f = function () { n.parentNode.insertBefore(s, n); };
-	    s.type = 'text/javascript';
-	    s.async = true;
-	    s.src = 'https://hma.ecvi.ru/assets/formreservation/js/iframeCreate/widget.create.js';
-	    if (w.opera == '[object Opera]') {  
-	        d.addEventListener('DOMContentLoaded', f, false);
-	    } else { f(); }
-	})(document, window, 'ecvi_booking_callback');
+;(function (d, w, e) {
+    w[e] = w[e] || function(){
+        try {
+            w.ecviBookingForm = new EcviBookingForm({
+                protocol: 'https',
+                showOtherHotels: false,
+                checkHotelByDefault: false,
+                headOfficeID: '1',
+                hotelID: '1',
+                bookingPath: '',
+                token: 'e2868095-eda7-40ec-893f-247a7f34463d',
+                width: '',
+                height: 420,
+                cssPath: '',
+                rulesPath: '',
+                policyPath: '',
+                container: 'widgetBron',
+                target: 'booking',
+                lang: sessionStorage.getItem('ecviLang') || document.documentElement.lang.toUpperCase() || 'RU',
+                hiddenElems: 'time'
+            });
+        } catch(e) { console.warn( 'Something goes wrong'); }
+    }
+    var n = d.getElementsByTagName('script')[0],
+        s = d.createElement('script'),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = 'https://demo2.ecvi.ru/assets/formreservation/js/iframeCreate/widget.create.js';
+    if (w.opera == '[object Opera]') {  
+        d.addEventListener('DOMContentLoaded', f, false);
+    } else { f(); }
+})(document, window, 'ecvi_booking_callback');
 </script>
+
 <script src="js/handlebars-v4.0.11.js"></script>
 <!-- handlebars template -->
 <script id="entry-template" type="text/x-handlebars-template">
@@ -181,5 +152,6 @@
 </script>	
 <script src="js/markerclusterer.js"></script>
 <script src='js/mapHotels.js' async defer></script>
+<script src='js/core.min.js' type='text/javascript' async defer></script>
 </body>
 </html>
