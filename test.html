@@ -99,7 +99,7 @@
 			</div>
 		</footer>	
 
-<script>
+<!-- <script>
 ;(function (d, w, e) {
     w[e] = w[e] || function(){
         try {
@@ -119,7 +119,6 @@
                 container: 'widgetBron',
                 target: 'booking',
                 lang: sessionStorage.getItem('ecviLang') || document.documentElement.lang.toUpperCase() || 'RU',
-                hiddenElems: 'time'
             });
         } catch(e) { console.warn( 'Something goes wrong'); }
     }
@@ -133,8 +132,42 @@
         d.addEventListener('DOMContentLoaded', f, false);
     } else { f(); }
 })(document, window, 'ecvi_booking_callback');
+</script> -->
+<script>
+    ;(function (d, w, e) {
+        w[e] = w[e] || function(){
+            try {
+                w.ecviBookingForm = new EcviBookingForm({
+                    protocol: 'http',
+                    showOtherHotels: true,
+                    checkHotelByDefault: false,
+                    headOfficeID: '1',
+                    hotelID: '1',
+                    bookingPath: '',
+                    token: 'e2868095-eda7-40ec-893f-247a7f34463d',
+                    width: '',
+                    height: 420,
+                    cssPath: '',
+                    rulesPath: '',
+                    policyPath: 'http://www.google.com',
+                    container: 'widgetBron',
+                    target: 'booking',
+                    lang: sessionStorage.getItem('ecviLang') || document.documentElement.lang.toUpperCase() || 'RU',
+                    hiddenElems: ''
+                });
+            } catch(e) { console.warn( 'Something goes wrong'); }
+        }
+        var n = d.getElementsByTagName('script')[0],
+            s = d.createElement('script'),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = 'http://demo2.ecvi.ru/assets/formreservation/js/iframeCreate/widget.create.js';
+        if (w.opera == '[object Opera]') {  
+            d.addEventListener('DOMContentLoaded', f, false);
+        } else { f(); }
+    })(document, window, 'ecvi_booking_callback');
 </script>
-
 <script src="js/handlebars-v4.0.11.js"></script>
 <!-- handlebars template -->
 <script id="entry-template" type="text/x-handlebars-template">
