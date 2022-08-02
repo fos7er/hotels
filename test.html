@@ -1,105 +1,97 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-	<meta charset="UTF-8">
-	<title>Hotels booking test</title>
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="css/style.css">
-<!-- 	<link rel="stylesheet" href="css/style.min.css"> -->
-	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=cyrillic" rel="stylesheet">
-</head>
-<body>
-	<div class="wrapper">
-		<header>
-			<div class="search-controls-container row">
-				<div class=" search-controls col-md-6">
-					<h1 class="search-title">Выберите отель:</h1>
-					<div class="search-buttons-container">
-						<select name="city" id="cityHotelsSelect" placeholder="Выберите город..." class="select-city">
-							<option value="Moscow">Москва</option>
-							<option value="SPb">Санкт-Петербург</option>
-						</select>
-						
-						<div class="search-icon" id="searchForHotels">
-							<svg xmlns="http://www.w3.org/2000/svg" class="loopa-logo" viewBox="0 0 16.687 16.688">
-								
-								<defs>
-								    <style>
-								      .cls-1 {
-								        fill: #d6dfda;
-								        fill-rule: evenodd;
-								        opacity: 1.0;
-								      }
-								    </style>
-								  </defs>
-								  <path id="loopa" class="cls-1" d="M638.155,40.747H637.4l-0.264-.261a6.21,6.21,0,1,0-.675.675l0.263,0.262v0.755l4.773,4.76,1.423-1.422Zm-5.731,0a4.291,4.291,0,1,1,4.3-4.291A4.294,4.294,0,0,1,632.424,40.747Z" transform="translate(-626.219 -30.25)"></path>
-								</svg>
-						</div>
-						
-					</div>
-					
-					
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hotels booking test</title>
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- 	<link rel="stylesheet" href="css/style.min.css"> -->
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=cyrillic" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div class="search-controls-container row">
+          <div class="search-controls col-md-6">
+            <h1 class="search-title">Выберите отель:</h1>
+            <div class="search-buttons-container">
+              <select name="city" id="cityHotelsSelect" placeholder="Выберите город..." class="select-city">
+                <option value="Moscow">Москва</option>
+                <option value="SPb">Санкт-Петербург</option>
+              </select>
 
-					
-				</div>
-				<div class="filter-controls-container col-md-6">
-					<span class="filter-title">Сортировать результаты:</span>
-					<ul class="search-filter">
-						<li>
-							<input type="radio" name="search-filter" value="rating+" checked>
-							<label for="byRatingHigh">По возрастанию рейтинга</label>
-						</li>
-						<li>
-							<input type="radio" name="search-filter" value="rating-">
-							<label for="byRatingLow">По убыванию рейтинга</label>
-						</li>
-						<li>
-							<input type="radio" name="search-filter" value="price+">
-							<label for="byPriceHigh">По возрастанию стоимости</label>
-						</li>
-						<li>
-							<input type="radio" name="search-filter" value="price-">
-							<label for="byRatingLow">По убыванию стоимости</label>
-						</li>
-					</ul>
-					
-				</div>
-			</div>
-			
-		</header>
-		<section class="search-results container-fluid">
-			<div id="mapFilter" class="center-block">
-				<div class="map-filters center-block ">
-						<label >
-						<input  type="radio" name="map-filter" value="all" checked>
-						ECVI + Edelweiss
-					</label>
-					<label > 
-						<input  type="radio" name="map-filter" value="ecvi">
-						ECVI
-					</label>
-					<label >
-						<input  type="radio" name="map-filter" value="edelweiss">
-						Edelweiss
-					</label>
-				</div>
-			</div>
+              <div class="search-icon" id="searchForHotels">
+                <svg xmlns="http://www.w3.org/2000/svg" class="loopa-logo" viewBox="0 0 16.687 16.688">
+                  <defs>
+                    <style>
+                      .cls-1 {
+                        fill: #d6dfda;
+                        fill-rule: evenodd;
+                        opacity: 1;
+                      }
+                    </style>
+                  </defs>
+                  <path
+                    id="loopa"
+                    class="cls-1"
+                    d="M638.155,40.747H637.4l-0.264-.261a6.21,6.21,0,1,0-.675.675l0.263,0.262v0.755l4.773,4.76,1.423-1.422Zm-5.731,0a4.291,4.291,0,1,1,4.3-4.291A4.294,4.294,0,0,1,632.424,40.747Z"
+                    transform="translate(-626.219 -30.25)"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="filter-controls-container col-md-6">
+            <span class="filter-title">Сортировать результаты:</span>
+            <ul class="search-filter">
+              <li>
+                <input type="radio" name="search-filter" value="rating+" checked />
+                <label for="byRatingHigh">По возрастанию рейтинга</label>
+              </li>
+              <li>
+                <input type="radio" name="search-filter" value="rating-" />
+                <label for="byRatingLow">По убыванию рейтинга</label>
+              </li>
+              <li>
+                <input type="radio" name="search-filter" value="price+" />
+                <label for="byPriceHigh">По возрастанию стоимости</label>
+              </li>
+              <li>
+                <input type="radio" name="search-filter" value="price-" />
+                <label for="byRatingLow">По убыванию стоимости</label>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <section class="search-results container-fluid">
+        <div id="mapFilter" class="center-block">
+          <div class="map-filters center-block">
+            <label>
+              <input type="radio" name="map-filter" value="all" checked />
+              ECVI + Edelweiss
+            </label>
+            <label>
+              <input type="radio" name="map-filter" value="ecvi" />
+              ECVI
+            </label>
+            <label>
+              <input type="radio" name="map-filter" value="edelweiss" />
+              Edelweiss
+            </label>
+          </div>
+        </div>
 
-			<div class="col-md-8" id="widgetBron">
-				
-			</div>
-		
-		</section>
-		
-	</div> <!--end of wrapper -->
-	<footer id="footer">
-			<div class="footer-text">
-				Футер 
-			</div>
-		</footer>	
+        <div class="col-md-8" id="widgetBron"></div>
+      </section>
+    </div>
+    <!--end of wrapper -->
+    <footer id="footer">
+      <div class="footer-text">Футер</div>
+    </footer>
 
-<!-- <script>
+    <!-- <script>
 ;(function (d, w, e) {
     w[e] = w[e] || function(){
         try {
@@ -133,11 +125,13 @@
     } else { f(); }
 })(document, window, 'ecvi_booking_callback');
 </script> -->
-<script>
-;(function (d, w, e) {
-    w[e] = w[e] || function(){
-        try {
-            w.ecviBookingForm = new EcviBookingForm({
+    <script>
+      ;(function (d, w, e) {
+        w[e] =
+          w[e] ||
+          function () {
+            try {
+              w.ecviBookingForm = new EcviBookingForm({
                 protocol: 'https',
                 showOtherHotels: false,
                 checkHotelByDefault: true,
@@ -152,37 +146,48 @@
                 policyPath: '',
                 container: 'widgetBron',
                 target: 'booking',
-                lang: sessionStorage.getItem('ecviLang') || document.documentElement.lang.toUpperCase() || 'RU'
-            });
-        } catch(e) { console.warn( 'Something goes wrong'); }
-    }
-    var n = d.getElementsByTagName('script')[0],
-        s = d.createElement('script'),
-        f = function () { n.parentNode.insertBefore(s, n); };
-    s.type = 'text/javascript';
-    s.async = true;
-    s.src = 'https://hma.ecvi.ru/assets/formreservation/js/iframeCreate/widget.create.js';
-    if (w.opera == '[object Opera]') {  
-        d.addEventListener('DOMContentLoaded', f, false);
-    } else { f(); }
-})(document, window, 'ecvi_booking_callback');
-</script>
-<script src="js/handlebars-v4.0.11.js"></script>
-<!-- handlebars template -->
-<script id="entry-template" type="text/x-handlebars-template">
-	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 hotel-item">
-		<div class="hotel-item-inner" style="background-image: url('{{preview}}'), url('img/noimage.jpg')">
-			<div class="hotel-item-top-container">
-			<h3 class="hotel-name">{{name}}</h3>
-			<div class="hotel-rating"> {{rating}}</div>
-			</div>
-			<div class="hotel-price"> от {{price}} руб.</div>
-			<button class="bookHotel-button"> Забронировать </button>
-		</div>
+                lang: sessionStorage.getItem('ecviLang') || document.documentElement.lang.toUpperCase() || 'RU',
+              })
+            } catch (e) {
+              console.warn('Something goes wrong')
+            }
+          }
+        var n = d.getElementsByTagName('script')[0],
+          s = d.createElement('script'),
+          f = function () {
+            n.parentNode.insertBefore(s, n)
+          }
+        s.type = 'text/javascript'
+        s.async = true
+        s.src = 'https://hma.ecvi.ru/assets/formreservation/js/iframeCreate/widget.create.js'
+        if (w.opera == '[object Opera]') {
+          d.addEventListener('DOMContentLoaded', f, false)
+        } else {
+          f()
+        }
+      })(document, window, 'ecvi_booking_callback')
+    </script>
+    <script src="js/handlebars-v4.0.11.js"></script>
+    <!-- handlebars template -->
+    <script id="entry-template" type="text/x-handlebars-template">
+      <div class='col-xs-12 col-sm-6 col-md-4 col-lg-3 hotel-item'>
+        <div class='hotel-item-inner' style="background-image: url('{{preview}}'), url('img/noimage.jpg')">
+          <div class='hotel-item-top-container'>
+            <h3 class='hotel-name'>{{name}}</h3>
+            <div class='hotel-rating'> {{rating}}</div>
+          </div>
+          <div class='hotel-price'> от {{price}} руб.</div>
+          <button class='bookHotel-button'> Забронировать </button>
+        </div>
 
-	</div>
-</script>	
-<script src="js/markerclusterer.js"></script>
-<script src='js/mapHotels.js' async defer></script>
-</body>
+      </div>
+    </script>
+    <script src="js/markerclusterer.js"></script>
+    <script src="js/mapHotels.js" async defer></script>
+    <script>
+      if (window.opener) {
+        window.opener.postMessage('hello there!')
+      }
+    </script>
+  </body>
 </html>
